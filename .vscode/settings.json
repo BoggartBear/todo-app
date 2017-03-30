@@ -1,0 +1,11 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "workbench.iconTheme": "vs-seti",
+    "typescript.check.tscVersion": false,
+    "files.autoSave": "afterDelay",
+    "editor.tabSize": 2,
+    "editor.renderIndentGuides": true,
+    "window.menuBarVisibility": "toggle",
+    "workbench.sideBar.location": "left",
+    "window.zoomLevel": 0
+  }
