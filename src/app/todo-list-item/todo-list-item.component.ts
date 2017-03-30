@@ -23,7 +23,7 @@ export class TodoListItemComponent implements OnInit {
     this.toggleComplete.emit(todo);
   }
 
-  removeTodo(todo: Todo) {    
+  removeTodo(todo: Todo) {
     this.remove.emit(todo);
   }
 
