@@ -21,22 +21,19 @@ export class AppComponent {
 
   // Service is now avaialble as this.todoDataService
 
-
-  addTodo() {
-    this.todoDataService.addTodo(this.newTodo);
-    this.newTodo = new Todo();
+  onAddTodo(todo: Todo) {
+    this.todoDataService.addTodo(todo);
   }
 
-  toggleTodoComplete(todo) {
+  toggleTodoComplete(todo: Todo) {
     this.todoDataService.toggleTodoComplete(todo);
   }
 
-  removeTodo(todo) {
+  removeTodo(todo: Todo) {
     this.todoDataService.deleteTodoById(todo.id);
   }
 
   get todos() {
     return this.todoDataService.getAllTodos();
   }
-
 }
