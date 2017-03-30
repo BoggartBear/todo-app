@@ -6,12 +6,9 @@ import { Todo } from './todo';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [TodoDataService]
+  providers: []
 })
 export class AppComponent {
-  title = 'app works!';
-  newTodo: Todo = new Todo();
-
   // Ask Angular DI system to inject the dependency
   // associated with the dependency injection token `TodoDataService`
   // and assign it to a property called `todoDataService`
@@ -22,18 +19,29 @@ export class AppComponent {
   // Service is now avaialble as this.todoDataService
 
   onAddTodo(todo: Todo) {
-    this.todoDataService.addTodo(todo);
+    if (!this.isNullOrWhiteSpace(todo.title)) {
+      this.todoDataService.addTodo(todo);
+    }
   }
 
-  toggleTodoComplete(todo: Todo) {
+  onToggleTodoComplete(todo: Todo) {
     this.todoDataService.toggleTodoComplete(todo);
   }
 
-  removeTodo(todo: Todo) {
+  onRemoveTodo(todo: Todo) {
     this.todoDataService.deleteTodoById(todo.id);
   }
 
   get todos() {
     return this.todoDataService.getAllTodos();
+  }
+
+  isNullOrWhiteSpace(input: string) {
+    // credit: Dexter on stackoverflow
+    if (typeof input === 'undefined' || input == null) {
+      return true;
+    }
+
+    return input.replace(/\s/g, '').length < 1;
   }
 }
